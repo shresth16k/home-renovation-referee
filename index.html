@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renovation Referee - Ultra Modern Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#6366f1',
+                        'secondary': '#8b5cf6',
+                        'accent': '#06b6d4',
+                        'success': '#10b981',
+                        'warning': '#f59e0b',
+                        'dark': '#0f172a',
+                        'light': '#f8fafc'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="modern-bg min-h-screen font-inter">
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+        <div class="floating-orb orb-4"></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-4 max-w-7xl py-8">
+        <!-- Ultra Modern Header -->
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-primary to-secondary mb-6 shadow-2xl">
+                <span class="text-3xl">🏠</span>
+            </div>
+            <h1 class="text-6xl font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent mb-4 tracking-tight">
+                Renovation Referee
+            </h1>
+            <p class="text-xl text-white/70 font-light max-w-2xl mx-auto leading-relaxed">
+                AI-powered renovation decisions with realistic material visualization and intelligent cost analysis
+            </p>
+            <div class="flex justify-center mt-6 space-x-2">
+                <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white/80 backdrop-blur-sm">✨ Ultra Modern</span>
+                <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white/80 backdrop-blur-sm">🎯 AI Powered</span>
+                <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white/80 backdrop-blur-sm">💰 Cost Analysis</span>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid gap-8 xl:grid-cols-3 lg:grid-cols-2">
+            
+            <!-- Left Column: Input Sections -->
+            <div class="xl:col-span-1 space-y-6">
+                
+                <!-- Section 1: Dilemma Selection -->
+                <div class="modern-card group">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <span class="text-2xl">🤔</span>
+                        </div>
+                        <h2 class="card-title">What's Your Dilemma?</h2>
+                    </div>
+                    <div class="card-content">
+                        <select id="dilemmaSelect" class="modern-select">
+                            <option value="">Choose your renovation challenge...</option>
+                            <option value="flooring">🏠 Flooring Decision</option>
+                            <option value="wallFinish">🎨 Wall Finish Decision</option>
+                            <option value="lighting">💡 Lighting Decision</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Section 2: Enhanced Constraint Form -->
+                <div class="modern-card group">
+                    <div class="card-header">
+                        <div class="icon-wrapper">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                        <h2 class="card-title">Your Requirements</h2>
+                    </div>
+                    <div class="card-content space-y-6">
+                        <!-- Budget -->
+                        <div class="input-group">
+                            <label class="input-label">Budget Range</label>
+                            <select id="budgetSelect" class="modern-select">
+                                <option value="">Select your budget...</option>
+                                <option value="low">💰 Budget-Conscious ($)</option>
+                                <option value="medium">💰💰 Balanced Approach ($$)</option>
+                                <option value="high">💰💰💰 Premium Quality ($$$)</option>
+                            </select>
+                        </div>
+
+                        <!-- Room Area -->
+                        <div class="input-group">
+                            <label class="input-label">Room Area</label>
+                            <div class="relative">
+                                <input type="number" id="roomAreaInput" min="50" max="5000" 
+                                       placeholder="Enter room size" 
+                                       class="modern-input pr-16">
+                                <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 text-sm">sq ft</span>
+                            </div>
+                            <p class="input-hint">Used for precise cost calculations (50-5000 sq ft)</p>
+                        </div>
+
+                        <!-- Pets -->
+                        <div class="input-group">
+                            <label class="input-label">Pet-Friendly Requirements</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="pets" value="true" class="radio-input">
+                                    <div class="radio-custom"></div>
+                                    <span class="radio-label">🐕 Yes, I have pets</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="pets" value="false" class="radio-input">
+                                    <div class="radio-custom"></div>
+                                    <span class="radio-label">🚫 No pets</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Climate -->
+                        <div class="input-group">
+                            <label class="input-label">Climate Conditions</label>
+                            <select id="climateSelect" class="modern-select">
+                                <option value="">Select your climate...</option>
+                                <option value="humid">💧 Humid Environment</option>
+                                <option value="dry">🌵 Dry Climate</option>
+                                <option value="cold">❄️ Cold Weather</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Action Button -->
+                <div class="modern-card group text-center">
+                    <button id="refereeWhistle" class="cta-button group disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                        <div class="button-content">
+                            <span class="button-icon">🎯</span>
+                            <span class="button-text">Get AI Recommendation</span>
+                        </div>
+                        <div class="button-glow"></div>
+                    </button>
+                    <p class="text-white/60 text-sm mt-4 font-light">
+                        Advanced AI analysis with realistic material preview
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Results Section -->
+            <div class="xl:col-span-2 space-y-6">
+                
+                <!-- Enhanced Results Container -->
+                <div id="resultsContainer" class="modern-card result-card hidden">
+                    <div class="card-header">
+                        <div class="icon-wrapper success">
+                            <span class="text-2xl">🏆</span>
+                        </div>
+                        <h2 class="card-title">AI Recommendation</h2>
+                    </div>
+                    
+                    <!-- Material Visualization Section -->
+                    <div id="materialVisualization" class="material-showcase mb-8">
+                        <div class="material-preview-container">
+                            <div id="materialPreview" class="material-preview">
+                                <!-- Dynamic material preview will be inserted here -->
+                            </div>
+                            <div class="material-info">
+                                <h3 id="materialName" class="material-title"></h3>
+                                <p id="materialDescription" class="material-desc"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Winner Display -->
+                    <div id="winnerSection" class="winner-section mb-8">
+                        <div class="winner-badge">
+                            <span class="winner-icon">🥇</span>
+                            <span class="winner-label">Recommended Choice</span>
+                        </div>
+                        <h3 id="winnerText" class="winner-text"></h3>
+                    </div>
+
+                    <!-- Pros Section -->
+                    <div id="prosSection" class="pros-section mb-8">
+                        <h4 class="section-title">
+                            <span class="section-icon">✅</span>
+                            Why This Wins
+                        </h4>
+                        <ul id="prosList" class="pros-list">
+                            <!-- Pros will be populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                    <!-- Enhanced Trade-off Alert with Cost Analysis -->
+                    <div id="tradeOffSection" class="tradeoff-section">
+                        <div class="tradeoff-header">
+                            <span class="tradeoff-icon">⚠️</span>
+                            <h4 class="tradeoff-title">Trade-off Analysis & Cost Breakdown</h4>
+                        </div>
+                        <div class="tradeoff-content">
+                            <p id="tradeOffText" class="tradeoff-text">
+                                <!-- Trade-off message will be populated by JavaScript -->
+                            </p>
+                            <div id="costAnalysis" class="cost-breakdown">
+                                <div class="cost-header">
+                                    <span class="cost-icon">💰</span>
+                                    <span class="cost-label">Cost Analysis</span>
+                                </div>
+                                <div id="costText" class="cost-details">
+                                    <!-- Cost analysis will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Loading State -->
+                <div id="loadingState" class="modern-card text-center hidden">
+                    <div class="loading-container">
+                        <div class="ai-loader">
+                            <div class="loader-ring"></div>
+                            <div class="loader-ring"></div>
+                            <div class="loader-ring"></div>
+                        </div>
+                        <h3 class="loading-title">AI Analysis in Progress</h3>
+                        <p class="loading-subtitle">Analyzing your requirements and calculating optimal solutions...</p>
+                        <div class="loading-steps">
+                            <div class="step active">🔍 Analyzing constraints</div>
+                            <div class="step">💰 Calculating costs</div>
+                            <div class="step">🎨 Preparing visualization</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Placeholder -->
+                <div id="placeholderSection" class="modern-card text-center">
+                    <div class="placeholder-content">
+                        <div class="placeholder-icon">🏠</div>
+                        <h3 class="placeholder-title">Ready for Your Renovation Decision?</h3>
+                        <p class="placeholder-subtitle">
+                            Fill out your requirements and let our AI analyze the best options for your space
+                        </p>
+                        <div class="feature-highlights">
+                            <div class="feature">
+                                <span class="feature-icon">🎨</span>
+                                <span class="feature-text">Realistic Visualization</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">💰</span>
+                                <span class="feature-text">Cost Analysis</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">🤖</span>
+                                <span class="feature-text">AI Recommendations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-16 text-white/50">
+            <p class="text-sm font-light">
+                Powered by advanced AI algorithms and real-world data • Ultra Modern Edition 2024
+            </p>
+        </div>
+    </div>
+
+    <script src="logic.js"></script>
+</body>
+</html>
