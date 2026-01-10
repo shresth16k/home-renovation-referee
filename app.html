@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>RenoRef — Architecture Planning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 767px)">
+    <link rel="stylesheet" href="desktop.css" media="(min-width: 768px)">
+</head>
+<body>
+    <div class="app">
+        <!-- Background Images -->
+        <div class="bg-container">
+            <div class="bg-image bg-1 active"></div>
+            <div class="bg-image bg-2"></div>
+            <div class="bg-image bg-3"></div>
+            <div class="bg-image bg-4"></div>
+            <div class="bg-overlay"></div>
+        </div>
+
+        <main class="main-content">
+            
+            <!-- DECIDE TAB -->
+            <section class="view active" data-view="decide">
+                <!-- Hero Card -->
+                <div class="hero-card">
+                    <div class="hero-content">
+                        <span class="hero-tag">Material Selection</span>
+                        <h1 class="hero-title">Find Your Perfect<br>Material Match</h1>
+                        <p class="hero-subtitle">AI-powered recommendations based on your lifestyle</p>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">2.4K</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value">98%</span>
+                            <span class="stat-label">Accuracy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="glass-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="card-title">Project Details</h2>
+                            <p class="card-subtitle">Tell us about your space</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <select id="categorySelect" class="form-select">
+                                <option value="">Select type</option>
+                                <option value="flooring">Flooring</option>
+                                <option value="walls">Wall Finish</option>
+                                <option value="lighting">Lighting</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Budget</label>
+                            <select id="budgetSelect" class="form-select">
+                                <option value="">Select range</option>
+                                <option value="economy">Economy</option>
+                                <option value="standard">Standard</option>
+                                <option value="premium">Premium</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Area (sq ft)</label>
+                            <input type="number" id="roomSizeInput" class="form-input" placeholder="e.g., 250" min="50" max="5000">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Climate</label>
+                            <select id="climateSelect" class="form-select">
+                                <option value="">Select climate</option>
+                                <option value="humid">Humid</option>
+                                <option value="dry">Dry</option>
+                                <option value="cold">Cold</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Pets in home?</label>
+                        <div class="toggle-group">
+                            <button class="toggle-btn" data-value="yes">
+                                <span class="toggle-icon">🐕</span> Yes
+                            </button>
+                            <button class="toggle-btn" data-value="no">
+                                <span class="toggle-icon">✗</span> No
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="compareBtn" class="btn-primary" disabled>
+                        <span>Compare Materials</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Comparison Results -->
+                <div id="comparisonResults" class="comparison-results hidden">
+                    <div class="results-header">
+                        <h2 class="results-title">Analysis Complete</h2>
+                        <div class="results-badge">
+                            <span class="pulse"></span>
+                            AI Recommendation
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-grid">
+                        <div id="optionA" class="comparison-card">
+                            <h3 class="option-name"></h3>
+                            <ul class="pros-list"></ul>
+                        </div>
+                        <div id="optionB" class="comparison-card">
+                            <h3 class="option-name"></h3>
+                            <ul class="pros-list"></ul>
+                        </div>
+                    </div>
+
+                    <!-- Material Sample -->
+                    <div class="material-preview">
+                        <div class="preview-label">Material Preview</div>
+                        <div class="material-sample">
+                            <div class="sample-cube" id="sampleCube">
+                                <div class="cube-face front"></div>
+                                <div class="cube-face back"></div>
+                                <div class="cube-face right"></div>
+                                <div class="cube-face left"></div>
+                                <div class="cube-face top"></div>
+                                <div class="cube-face bottom"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tradeOffNote" class="trade-off-note">
+                        <div class="note-icon">💡</div>
+                        <p></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BUDGET TAB -->
+            <section class="view" data-view="budget">
+                <div class="hero-card hero-budget">
+                    <div class="hero-content">
+                        <span class="hero-tag">Cost Estimation</span>
+                        <h1 class="hero-title">Smart Budget<br>Calculator</h1>
+                    </div>
+                    <div class="budget-ring">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="ring-bg" cx="60" cy="60" r="50"/>
+                            <circle class="ring-progress" cx="60" cy="60" r="50" id="budgetRing"/>
+                        </svg>
+                        <div class="ring-center">
+                            <span class="ring-value" id="ringPercent">0%</span>
+                            <span class="ring-label">of avg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="budgetMaterial" class="material-badge hidden">
+                    <div class="badge-dot"></div>
+                    <span class="badge-text">Selected: <strong></strong></span>
+                </div>
+
+                <div class="glass-card">
+                    <div class="budget-display">
+                        <span class="budget-currency">$</span>
+                        <span class="budget-amount" id="totalCost">0.00</span>
+                        <span class="budget-label">Estimated Total</span>
+                    </div>
+
+                    <div class="budget-inputs">
+                        <div class="input-row">
+                            <label>Square Footage</label>
+                            <input type="number" id="budgetSqFt" class="form-input" placeholder="0">
+                        </div>
+                        <div class="input-row">
+                            <label>Material / sq ft</label>
+                            <input type="number" id="materialCost" class="form-input" placeholder="0.00" step="0.01">
+                        </div>
+                        <div class="input-row">
+                            <label>Labor / sq ft</label>
+                            <input type="number" id="laborCost" class="form-input" placeholder="0.00" step="0.01">
+                        </div>
+                    </div>
+
+                    <div class="budget-breakdown">
+                        <div class="breakdown-row">
+                            <span>Materials</span>
+                            <span id="materialTotal">$0.00</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Labor</span>
+                            <span id="laborTotal">$0.00</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Tax (8.5%)</span>
+                            <span id="taxTotal">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DESIGN TAB -->
+            <section class="view" data-view="design">
+                <div class="hero-card hero-design">
+                    <div class="hero-content">
+                        <span class="hero-tag">Style Guide</span>
+                        <h1 class="hero-title">Personalized<br>Design Studio</h1>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="card-title">Room Configuration</h2>
+                            <p class="card-subtitle">Select your preferences</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Room Size</label>
+                        <div class="size-selector">
+                            <button class="size-btn" data-size="small">
+                                <span class="size-icon">◻</span>
+                                <span>Small</span>
+                            </button>
+                            <button class="size-btn" data-size="medium">
+                                <span class="size-icon">◻◻</span>
+                                <span>Medium</span>
+                            </button>
+                            <button class="size-btn" data-size="large">
+                                <span class="size-icon">◻◻◻</span>
+                                <span>Large</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Style Preference</label>
+                        <div class="style-grid">
+                            <button class="style-option" data-style="modern">
+                                <div class="style-preview modern-preview"></div>
+                                <span>Modern</span>
+                            </button>
+                            <button class="style-option" data-style="rustic">
+                                <div class="style-preview rustic-preview"></div>
+                                <span>Rustic</span>
+                            </button>
+                            <button class="style-option" data-style="industrial">
+                                <div class="style-preview industrial-preview"></div>
+                                <span>Industrial</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="designBtn" class="btn-primary" disabled>
+                        <span>Generate Design</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Design Results -->
+                <div id="designResults" class="design-results hidden">
+                    <div class="glass-card">
+                        <h3 class="section-label">Recommended Layout</h3>
+                        <p id="layoutRecommendation" class="layout-text"></p>
+                        <div class="furniture-grid" id="furnitureList"></div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="section-label">Color Palette</h3>
+                        <div id="colorPalette" class="palette-row"></div>
+                    </div>
+
+                    <div id="designNote" class="trade-off-note">
+                        <div class="note-icon">✨</div>
+                        <p></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REVIEWS TAB -->
+            <section class="view" data-view="reviews">
+                <div class="hero-card hero-reviews">
+                    <div class="hero-content">
+                        <span class="hero-tag">Community</span>
+                        <h1 class="hero-title">Real Experiences<br>Real Results</h1>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">15K+</span>
+                            <span class="stat-label">Reviews</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value">4.9</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-bar">
+                    <span class="topic-label">Showing:</span>
+                    <span class="topic-value" id="topicValue">General</span>
+                </div>
+
+                <div id="insightsFeed" class="insights-feed"></div>
+            </section>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-target="decide" onclick="switchTab('decide')">
+                <div class="nav-icon-wrap">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <span class="nav-label">Material</span>
+            </button>
+            <button class="nav-item" data-target="budget" onclick="switchTab('budget')">
+                <div class="nav-icon-wrap">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <span class="nav-label">Budget</span>
+            </button>
+            <button class="nav-item" data-target="design" onclick="switchTab('design')">
+                <div class="nav-icon-wrap">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                    </svg>
+                </div>
+                <span class="nav-label">Design</span>
+            </button>
+            <button class="nav-item" data-target="reviews" onclick="switchTab('reviews')">
+                <div class="nav-icon-wrap">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                </div>
+                <span class="nav-label">Reviews</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

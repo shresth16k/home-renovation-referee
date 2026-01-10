@@ -1,0 +1,47 @@
+/* RenoRef — Base Styles (Shared) */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --text-dark: #1a1a2e;
+  --text-medium: #4a4a5a;
+  --text-light: #8a8a9a;
+  --text-white: #ffffff;
+  --accent: #d4a853;
+  --accent-light: rgba(212, 168, 83, 0.15);
+  --success: #4ade80;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #e8e4df;
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background */
+.bg-container { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; }
+.bg-image {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1s ease;
+}
+.bg-image.active { opacity: 1; }
+.bg-1 { background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80'); }
+.bg-2 { background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80'); }
+.bg-3 { background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80'); }
+.bg-4 { background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80'); }
+.bg-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); }
+
+.app { position: relative; z-index: 1; min-height: 100vh; overflow-y: auto; }
+.main-content { position: relative; z-index: 2; }
+.view { display: none; animation: slideUp 0.4s ease; }
+.view.active { display: block; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.hidden { display: none !important; }
