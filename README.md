@@ -48,9 +48,9 @@
 ## 📁 Project Structure
 
 ```
-├── app.html          # Main application (4-tab SPA)
-├── app.css           # Industrial styling
-├── app.js            # Logic & state management
+├── index.html        # Main application (4-tab SPA)
+├── index.css         # Industrial styling
+├── index.js          # Logic & state management
 ├── LICENSE           # MIT License
 └── .kiro/
     └── specs/
