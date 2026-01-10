@@ -54,10 +54,9 @@
 ├── LICENSE           # MIT License
 └── .kiro/
     └── specs/
-        └── renoreef-pro/
-            ├── requirements.md
-            ├── design.md
-            └── tasks.md
+        ├── requirements.md
+        ├── design.md
+        └── tasks.md
 ```
 
 ## 🚀 Quick Start
