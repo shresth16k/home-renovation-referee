@@ -284,4 +284,52 @@ const renovationData = {
 
 ---
 
+## 🚀 Phase 6: RenoRef Pro - Multi-View Architecture Upgrade
+
+### Prompt 6.1 - Competition-Level SPA Transformation
+```
+"I am upgrading 'RenoRef' to a competition-level web app called 'RenoRef Pro'.
+
+Core Architecture Change: Instead of a simple scrolling website, I want a Multi-View Application with a fixed Bottom Navigation Bar.
+
+The 3 Main Views (Screens):
+'The Arena' (Home): The main input form where users select constraints (Pets, Climate) and materials to compare. It displays the 'Referee Verdict' and the 3D Cube here.
+'The Lab' (Calculator): A dedicated screen for detailed math. Inputs for Sq. Ft, Material Cost, and Labor Cost. It displays a breakdown of the total project price.
+'Community Pulse' (Social): A feed that displays simulated 'Trending Reddit Threads' relevant to the winning material. (e.g., if Tile wins, show threads like 'Why I regret Wood floors' or 'Best Grout for 2026').
+
+Additional Feature:
+'Pro-Tip' HUD: A dedicated section or floating card that offers an expert 'Did you know?' fact based on the selection.
+
+Task: Create a requirements.md that outlines this multi-screen architecture (SPA) and the data structure needed for the simulated Reddit threads."
+```
+
+### Prompt 6.2 - Street-Smart Industrial Design System
+```
+"Now create the design.md. We are using a 'Street-Smart / Industrial' aesthetic (Inspired by the Nimma Yatri app).
+
+1. Visual Specs:
+Theme: High Contrast. Background #121212 (Asphalt). Primary Accent #F4C430 (Safety Yellow). Text #FFFFFF.
+Typography: 'Oswald' or 'Impact' for headers (Bold, Condensed). 'Courier Prime' for data numbers.
+Borders: Thick, 2px solid Yellow borders on cards. No soft shadows—hard edges only.
+
+2. UI Layout Specs:
+Bottom Nav: A fixed black bar at the bottom with 3 Yellow icons (Arena, Lab, Pulse).
+Reddit Cards: Style the 'Community Pulse' items to look like dark-mode forum posts (Upvote arrow, user handle, comment count).
+Transitions: When switching tabs, the screens should slide in from the side (like a native phone app).
+
+Task: Write the design.md detailing the CSS classes for this layout and the 'Slide' animations"
+```
+
+**Result**: 
+- Created comprehensive industrial design system with street-smart aesthetic
+- Defined complete color palette with asphalt black and safety yellow
+- Specified Oswald/Impact typography for headers, Courier Prime for data
+- Designed hard-edge card system with 2px yellow borders
+- Created native-style slide transitions with cubic-bezier easing
+- Built Reddit-style community cards with upvote arrows and metadata
+- Implemented Pro-Tip HUD with industrial styling
+- Added responsive breakpoints and performance optimizations
+
+---
+
 *This prompt collection demonstrates the power of iterative, specification-driven development using AI assistance to create a professional, competition-ready web application.*
