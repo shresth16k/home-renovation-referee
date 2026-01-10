@@ -51,17 +51,9 @@
 ├── app.html          # Main application (4-tab SPA)
 ├── app.css           # Industrial styling
 ├── app.js            # Logic & state management
-├── index.html        # Original Home Renovation Referee
-├── style.css         # Original styling
-├── logic.js          # Original logic
 ├── LICENSE           # MIT License
 └── .kiro/
-    ├── PROMPTS.md    # Development prompts log
     └── specs/
-        ├── home-renovation-referee/
-        │   ├── requirements.md
-        │   ├── design.md
-        │   └── tasks.md
         └── renoreef-pro/
             ├── requirements.md
             ├── design.md
